@@ -20,7 +20,7 @@ const Read = () => {
 
   return (
     <>
-      <div className="main-heading">List of employee</div>
+      <div className="main-heading">List of employees</div>
       <table className="table">
         <thead>
           <tr>
