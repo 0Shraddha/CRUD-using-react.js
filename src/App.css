@@ -5,8 +5,17 @@
 }
 .container{
     margin: 115px 600px 0px;
-    width: 450px;
+    width: 600px;
     border: 1px solid #3e6a483a;
     border-radius: 12px;
     padding: 20px;
+}
+
+.main-heading{
+    font-weight: bold;
+    font-size: 25px;
+}
+
+table{
+    margin-top: 15px;
 }

@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 const Create = () => {
 
@@ -7,6 +9,26 @@ const Create = () => {
  const [email, setEmail] = useState("");
  const [[job], setJob] = useState("");
  const [id, setId] = useState("");
+
+ const history = useNavigate();   //for redirecting, for route
+
+ const header = {"Access-Control-Allow-Origin" : "*"};
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+  console.log("clicked!");
+  axios.post("https://6533f14be1b6f4c590466854.mockapi.io/api/v1/crud-employeeinfo",{
+    name:name,
+    phone:phone,
+    email:email,
+    job:job,
+    id:id,
+    header    
+  })
+  .then(() => {
+    history("/read");
+  });
+}
 
 //  function MyComponent() {
 //   const [id, setSelectedFile] = useState(null);
@@ -71,7 +93,7 @@ const Create = () => {
   </label>
 </div>
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2"  onChange={(e) => setJob(e.target.data)} />
+  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2"  />
   <label class="form-check-label" for="exampleRadios2">
     Part Time
   </label>
@@ -81,12 +103,13 @@ const Create = () => {
   <label for="formFileSm" class="form-label">Identity Card</label>
   <input class="form-control form-control-sm" id="formFileSm" type="file" onChange={(e) => setId(e.target.value)} required/>
 </div>
+{id}
 {/* {id}
 {job}
 {name}
 {email}
 {phone} */}
-        <button type="submit" className="btn btn-success">
+        <button type="submit" className="btn btn-success" onClick={handleSubmit}>
           Submit
         </button>
       </form>

@@ -1,12 +1,19 @@
 import React from "react";
 import "./App.css";
 import Create from "./Components/Create";
+import Read from "./Components/Read";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = () => {
   return (
     <>
-      <div className="container">
-       <Create/>
+     <div className="container">
+      <BrowserRouter>
+      <Routes>
+        <Route exact path="/" element={<Create/>}/>
+        <Route exact path="/read" element={<Read/>}/>
+      </Routes>
+      </BrowserRouter>
       </div>
     </>
   );
