@@ -16,7 +16,6 @@ const Create = () => {
 
 const handleSubmit = (e) => {
   e.preventDefault();
-  console.log("clicked!");
   axios.post("https://6533f14be1b6f4c590466854.mockapi.io/api/v1/crud-employeeinfo",{
     name:name,
     phone:phone,
